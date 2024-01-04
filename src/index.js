@@ -1,9 +1,7 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
-
 import { Notify } from 'notiflix';
-
-import SlimSelect from 'slim-select';
-import 'slim-select/dist/slimselect.css';
+// import SlimSelect from 'slim-select';
+// import 'slim-select/dist/slimselect.css';
 
 const selectBreed = document.querySelector('.breed-select');
 const catInfo = document.querySelector('.cat-info');
@@ -15,15 +13,15 @@ function breedSelection(data) {
     .then(data => {
       loadEl.classList.replace('loader', 'is-hidden');
 
-      const optionsMarkup = data
-        .map(({ name, id }) => `<option value='${id}'>${name}</option>`)
-        .join('');
-
-      selectBreed.insertAdjacentHTML('beforeend', optionsMarkup);
-
-      new SlimSelect({
-        select: selectBreed,
+      let markupOptions = data.map(({ name, id }) => {
+        return `<option value='${id}'>${name}</option>`;
       });
+
+      selectBreed.insertAdjacentHTML('beforeend', markupOptions);
+
+      //   new SlimSelect({
+      //     select: selectBreed,
+      //   });
 
       selectBreed.classList.remove('is-hidden');
     })
@@ -63,8 +61,8 @@ function createMarkup(event) {
 selectBreed.addEventListener('change', createMarkup);
 
 function onError() {
-  selectBreed.classList.remove('is-hidden');
-  errorEl.classList.replace('loader', 'is-hidden');
+  //   selectBreed.classList.remove('is-hidden');
+  //   errorEl.classList.replace('loader', 'is-hidden');
 
   Notify.failure(
     'Oops! Something went wrong! Try reloading the page or select another cat breed!'
