@@ -5,20 +5,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Homework 10</title>
-  <link rel="'stylesheet" href="./styles.css" />
-  <script src="https://unpkg.com/slim-select@latest/dist/slimselect.min.js"></script>
+  <link rel="stylesheet" href="./styles.css" />
   <link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet">
+
 </head>
 
 <body>
-  <div class="select-cat-container">
-    <select class="breed-select is-hidden" id="select-breed-element"></select>
-    <span class="loader is-hidden">Loading data, please wait...</span>
-    <p class="error is-hidden">Oops! Something went wrong! Try reloading the page!</p>
+  <div class="selector-container">
+    <select class="breed-select is-hidden"></select>
+    <p class="loader"></p>
+    <p class="error is-hidden">
+    </p>
     <div class="cat-info"></div>
   </div>
 
   <script src="index.js" type="module"></script>
+  <script src="https://unpkg.com/slim-select@latest/dist/slimselect.min.js"></script>
 </body>
 
 </html>
